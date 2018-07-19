@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>
+      Loki JS Viewer
+    </title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+
+    <div class="container">
+      <%- include('header', {collections}); %>
+      <% if(results && results.length > 0) { %>
+        <%- include('table', { results, cols }); %>
+      <% } %>
+
+    </div>
+
+  </body>
+</html>
