@@ -16,7 +16,7 @@ app.use('/css', express.static(path.join(__dirname, './node_modules/bootstrap/di
 app.use('/public', express.static('public'));
 
 app.get('/', function (req, res) {
-  res.render('pages/index', {
+  res.render('index', {
     collections: db.getCollections(),
     results: [],
     cols: []
@@ -29,7 +29,7 @@ app.get('/:collection', function (req, res) {
   const item = results[0];
   for( let prop in item)
     cols.push(prop);
-  res.render('pages/index', {
+  res.render('index', {
     collections: db.getCollections(),
     results,
     cols
@@ -38,7 +38,7 @@ app.get('/:collection', function (req, res) {
 
 console.log(program);
 console.log(program.file)
-if (program.file) {
+if (program.file && program.file.length > 0) {
   app.listen('5000', () => {
     console.log(`Started viewer on port: ${5000}`);
     db.init(program.file);
